@@ -10,8 +10,8 @@ VALUES
 -- Insert into DOCTOR table
 INSERT INTO DOCTOR (first_Name, last_Name, telephone_Number, email, doctor_Number, specialization, address_id)
 VALUES
-    ('Jan', 'Kowalski', '123456789', 'jan.kowalski@email.com', 'D12345', 'CARDIOLOGY', 1),
-    ('Anna', 'Nowak', '987654321', 'anna.nowak@email.com', 'D54321', 'PEDIATRICS', 2);
+    ('Jan', 'Kowalski', '123456789', 'jan.kowalski@email.com', 'D12345', 'OCULIST', 1),
+    ('Anna', 'Nowak', '987654321', 'anna.nowak@email.com', 'D54321', 'OCULIST', 2);
 
 -- Insert into PATIENT table
 INSERT INTO PATIENT (id, first_name, last_name, telephone_number, email, patient_number, date_of_birth, age)
@@ -28,11 +28,12 @@ VALUES
 
 
 -- Dodanie wizyt
-INSERT INTO VISIT (id, visit_date, doctor_name, patient_id)
+INSERT INTO VISIT (id, visit_date, description, patient_id, DOCTOR_ID)
 VALUES
-    (1, '2023-12-15 10:00:00', 'Dr. Andrzej Nowicki', 1),
-    (2, '2023-12-20 14:00:00', 'Dr. Maria Kozłowska', 2);
-
+    (1, '2023-12-15 10:00:00', 'test', 1,1),
+    (2, '2023-12-20 14:00:00', 'test2', 2,1),
+    (3, '2023-12-15 14:20:00', 'test3', 1,2),
+    (4, '2023-12-17 14:20:00', 'test3', 1,1);
 
 -- Powiązanie wizyt z zabiegami (relacja wiele-do-wielu)
 INSERT INTO VISIT_TREATMENT (visit_id, treatment_id)

@@ -3,7 +3,6 @@ package com.jpacourse.persistence.entity;
 import com.jpacourse.persistence.enums.Specialization;
 
 import javax.persistence.*;
-import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -38,6 +37,7 @@ public class DoctorEntity {
 
     @OneToMany(mappedBy = "doctor")
     private List<VisitEntity> visits;
+
     /*
     @OneToMany(mappedBy = "doctor", cascade = CascadeType.ALL, orphanRemoval = true) // Dwustronna relacja
     private List<VisitEntity> visits = new ArrayList<>();
@@ -114,5 +114,19 @@ public class DoctorEntity {
 
     public void setVisits(List<VisitEntity> visits) {
         this.visits = visits;
+    }
+
+    public DoctorEntity(Long id, String firstName, String lastName, String telephoneNumber, String email, String doctorNumber, Specialization specialization) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.telephoneNumber = telephoneNumber;
+        this.email = email;
+        this.doctorNumber = doctorNumber;
+        this.specialization = specialization;
+    }
+
+    public DoctorEntity() {
+
     }
 }

@@ -17,7 +17,7 @@ public class VisitEntity {
     private LocalDateTime visitDate;
 
     @Column(nullable = false)
-    private String doctorName;
+    private String description;
 
     @ManyToOne
     @JoinColumn(name = "patient_id", nullable = false)
@@ -28,12 +28,19 @@ public class VisitEntity {
     private DoctorEntity doctor;
 
 
+    public void setDoctor(DoctorEntity doctor) {
+        this.doctor = doctor;
+    }
+
     @ManyToMany
     @JoinTable(
             name = "visit_treatment",
             joinColumns = @JoinColumn(name = "visit_id"),
             inverseJoinColumns = @JoinColumn(name = "treatment_id")
     )
+
+
+
     private List<MedicalTreatmentEntity> treatments;
 
     public Long getId() { return id; }
@@ -42,8 +49,11 @@ public class VisitEntity {
     public LocalDateTime getVisitDate() { return visitDate; }
     public void setVisitDate(LocalDateTime visitDate) { this.visitDate = visitDate; }
 
-    public String getDoctorName() { return doctorName; }
-    public void setDoctorName(String doctorName) { this.doctorName = doctorName; }
+    public String getDescription() { return description; }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
     public PatientEntity getPatient() { return patient; }
     public void setPatient(PatientEntity patient) { this.patient = patient; }
