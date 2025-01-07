@@ -31,9 +31,9 @@ VALUES
 INSERT INTO VISIT (id, visit_date, description, patient_id, DOCTOR_ID)
 VALUES
     (1, '2023-12-15 10:00:00', 'test', 1,1),
-    (2, '2023-12-20 14:00:00', 'test2', 2,1),
-    (3, '2023-12-15 14:20:00', 'test3', 1,2),
-    (4, '2023-12-17 14:20:00', 'test3', 1,1);
+    (2, '2023-12-20 14:00:00', 'test2', 1,1),
+    (3, '2023-12-15 14:20:00', 'test3 ', 1,2),
+    (4, '2023-12-17 14:20:00', 'test4', 1,1);
 
 -- Powiązanie wizyt z zabiegami (relacja wiele-do-wielu)
 INSERT INTO VISIT_TREATMENT (visit_id, treatment_id)

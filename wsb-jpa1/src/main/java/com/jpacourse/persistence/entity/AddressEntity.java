@@ -10,6 +10,10 @@ public class AddressEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Version
+    @Column(name = "VERSION")
+    private Integer version;
+
     @Column(nullable = false)
     private String city;
 
@@ -28,6 +32,14 @@ public class AddressEntity {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public Integer getVersion() {
+        return version;
+    }
+
+    public void setVersion(Integer version) {
+        this.version = version;
     }
 
     public String getCity() {
